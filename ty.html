@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+   </head>
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="#">RHINO</a>
+      </div>
+      <ul>
+        <li><a href="#">READING</a></li>
+        <li><a href="#">SPEAKING</a></li>
+        <li><a href="#">LISTENING</a></li>
+        <li><a href="#">WRITING</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content">
+    <div class="images">
+                      <img src="C:\Users\suman\Desktop\desktop\Saved Pictures\001.jpg">
+                      <img src="C:\Users\suman\Desktop\desktop\Saved Pictures\002.jpg">
+                      <img src="C:\Users\suman\Desktop\desktop\Saved Pictures\003.jpg">
+                      <img src="C:\Users\suman\Desktop\desktop\Saved Pictures\004.jpg">
+                      <img src="C:\Users\suman\Desktop\desktop\Saved Pictures\005.jpg">
+                   </div>
+                   <div class="btm-slides">
+                      <span onclick="btm_slide(1)"></span>
+                      <span onclick="btm_slide(2)"></span>
+                      <span onclick="btm_slide(3)"></span>
+                      <span onclick="btm_slide(4)"></span>
+                      <span onclick="btm_slide(5)"></span>
+                   </div>
+                   <div class="sliders left" onclick="side_slide(-1)">
+                      <span class="fas fa-angle-left"></span>
+                   </div>
+                   <div class="sliders right" onclick="side_slide(1)">
+                      <span class="fas fa-angle-right"></span>
+                   </div>
+                </div>
+                <script>
+                   var indexValue = 1;
+                   showImg(indexValue);
+                   function btm_slide(e){showImg(indexValue = e);}
+                   function side_slide(e){showImg(indexValue += e);}
+                   function showImg(e){
+                     var i;
+                     const img = document.querySelectorAll('img');
+                     const slider = document.querySelectorAll('.btm-slides span');
+                     if(e > img.length){indexValue = 1}
+                     if(e < 1){indexValue = img.length}
+                     for(i = 0; i < img.length; i++){
+                       img[i].style.display = "none";
+                     }
+                     for(i = 0; i < slider.length; i++){
+                       slider[i].style.background = "rgba(255,255,255,0.1)";
+                     }
+                     img[indexValue-1].style.display = "block";
+                     slider[indexValue-1].style.background = "white";
+                   }
+                </script> 
+        
+  <div class="center">
+    <div class="title">Improve ur skills with</div>
+    <div class="sub_title">RHINO LABS</div>
+    <div class="btns">
+      <button>LEARN</button>
+      <button>WATCH NOW</button>
+    </div>
+  </div>
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+::selection{
+  color: #000;
+  background: #fff;
+}
+nav{
+  position: fixed;
+  background: #1b1b1b;
+  width: 100%;
+  padding: 10px 0;
+  z-index: 12;
+}
+nav .menu{
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.menu .logo a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+}
+.menu ul{
+  display: inline-flex;
+}
+.menu ul li{
+  list-style: none;
+  margin-left: 7px;
+}
+.menu ul li:first-child{
+  margin-left: 0px;
+}
+.menu ul li a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.menu ul li a:hover{
+  background: #fff;
+  color: black;
+}
+.center{
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+}
+.center .title{
+  color: #fff;
+  font-size: 55px;
+  font-weight: 600;
+}
+.center .sub_title{
+  color: #fff;
+  font-size: 52px;
+  font-weight: 600;
+}
+.center .btns{
+  margin-top: 20px;
+}
+.center .btns button{
+  height: 55px;
+  width: 170px;
+  border-radius: 5px;
+  border: none;
+  margin: 0 10px;
+  border: 2px solid white;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0 10px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.center .btns button:first-child{
+  color: #fff;
+  background: none;
+}
+.btns button:first-child:hover{
+  background: white;
+  color: black;
+}
+.center .btns button:last-child{
+  background: white;
+  color: black;
+}
+.checkbtn{
+    font-size: 30px;
+    color: #fff;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width: 968px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 875px){
+    .checkbtn{
+      display: block;
+    }
+    nav ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #27282c;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      font-size: 20px;
+    }
+    a:hover, a.active{
+      background: none;
+      color: #0082e6;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
+
+
+
+
+  .content{
+    height: 657px;
+    width: 1366px;
+    position: relative;
+  }
+  .content .images{
+    height: 100%;
+    width: 100%;
+  }
+  .content .images img{
+    height: 100%;
+    width: 100%;
+  }
+  .btm-slides{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  .btm-slides span{
+    height: 1px;
+    width: 50px;
+    border: 2px solid white;
+    margin: 0 3px;
+    cursor: pointer;
+  }
+  .sliders{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 23px;
+    width: 45px;
+    cursor: pointer;
+    border: 2px solid white;
+    background: rgba(255,255,255,0.1);
+  }
+  .sliders:hover{
+    background: rgba(255,255,255,0.2);
+  }
+  .sliders.active,.sliders:hover{
+    background: #fff;
+    transition: .5s;
+    color: #022f69;
+  }
+  .right{
+    right: 0;
+  }
+  .sliders span{
+    line-height: 40px;
+    font-size: 35px;
+    color: white;
+  }
+
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins" , sans-serif;
+  }
+  body{
+    min-height: 100vh;
+    width: 100%;
+    background: #EEECEB;
+  }
+ 
+  
+</style>
+</html>
